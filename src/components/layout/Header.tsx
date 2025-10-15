@@ -64,7 +64,7 @@ export function Header() {
     <>
       {/* Top Bar */}
       <div
-        className={`w-full bg-transparent text-zinc-300 text-sm transition-all duration-300 ${
+        className={`w-full bg-black text-zinc-300 text-sm transition-all duration-300 ${
           isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"
         }`}
       >
