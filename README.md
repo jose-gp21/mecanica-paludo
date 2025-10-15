@@ -2,7 +2,7 @@
 
 <img src="public/logo.png" alt="Logo Mecânica Paludo" width="160"/>
 
-> 🚗 **20 anos de confiança e excelência em manutenção automotiva**  
+> 🚗 **10 anos de confiança e excelência em manutenção automotiva**  
 > Localizada em **Abelardo Luz - SC**, a Mecânica Paludo é especializada em **camionetes** e **serviços de revisão completa**, oferecendo segurança, qualidade e atendimento diferenciado.
 
 ---
