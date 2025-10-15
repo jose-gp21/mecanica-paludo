@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔧 Mecânica Paludo
 
-## Getting Started
+<img src="public/logo.png" alt="Logo Mecânica Paludo" width="160"/>
 
-First, run the development server:
+> 🚗 **20 anos de confiança e excelência em manutenção automotiva**  
+> Localizada em **Abelardo Luz - SC**, a Mecânica Paludo é especializada em **camionetes** e **serviços de revisão completa**, oferecendo segurança, qualidade e atendimento diferenciado.
+
+---
+
+## 🌐 Site Institucional
+
+O site da **Mecânica Paludo** foi desenvolvido para apresentar os principais serviços da oficina, sua história e localização, facilitando o contato direto via **WhatsApp** e fortalecendo a presença digital da marca.
+
+🖥️ **Acesse:** [https://mecanicapaludo.com.br](https://mecanicapaludo.com.br)
+
+---
+
+## 🧩 Tecnologias Utilizadas
+
+| Categoria | Tecnologia | Descrição |
+|------------|-------------|------------|
+| **Frontend** | [Next.js 15](https://nextjs.org/) | Framework React moderno com renderização híbrida (SSG/SSR) |
+| **Linguagem** | [TypeScript](https://www.typescriptlang.org/) | Tipagem estática e segurança em tempo de desenvolvimento |
+| **Estilo** | [Tailwind CSS](https://tailwindcss.com/) | Estilização rápida, responsiva e personalizável |
+| **Hospedagem** | [Vercel](https://vercel.com/) | Deploy contínuo e gratuito, com SSL automático |
+| **Ícones** | [Lucide React](https://lucide.dev/) | Ícones leves e modernos |
+| **Animações** | [Framer Motion](https://www.framer.com/motion/) | Efeitos suaves e transições fluídas |
+| **Mapa** | [Google Maps Embed API](https://developers.google.com/maps) | Localização interativa da oficina |
+
+---
+
+## 📱 Páginas do Site
+
+| Página | Conteúdo | Objetivo |
+|---------|-----------|-----------|
+| **Home** | Banner com logo, frase de impacto e botão de WhatsApp | Apresentar a marca |
+| **Serviços** | Lista de serviços com ícones e descrições curtas | Mostrar especializações |
+| **Sobre Nós** | História, fotos da oficina e da equipe | Gerar confiança e proximidade |
+| **Contato** | Endereço, Google Maps, WhatsApp e redes sociais | Facilitar o contato |
+
+---
+
+## ⚙️ Estrutura de Pastas
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+src
+│   ├── app
+│   │   ├── contato
+│   │   │   └── page.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── home
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── servicos
+│   │   │   └── page.tsx
+│   │   └── sobre
+│   │       └── page.tsx
+│   ├── components
+│   │   ├── home
+│   │   │   ├── AboutSection.tsx
+│   │   │   ├── ContactSection.tsx
+│   │   │   ├── HeroSection.tsx
+│   │   │   └── ServicesSection.tsx
+│   │   ├── layout
+│   │   │   ├── Footer.tsx
+│   │   │   ├── GlobalModals.tsx
+│   │   │   └── Header.tsx
+│   │   ├── shared
+│   │   │   ├── MapSection.tsx
+│   │   │   ├── SocialLinks.tsx
+│   │   │   ├── WhatsAppButton.tsx
+│   │   │   ├── WhatsAppModal.tsx
+│   │   │   └── WorkModal.tsx
+│   │   └── ui
+│   │       ├── Button.tsx
+│   │       ├── Card.tsx
+│   │       └── Section.tsx
+│   ├── data
+│   ├── hooks
+│   │   ├── useWhatsAppModal.ts
+│   │   └── useWorkModal.ts
