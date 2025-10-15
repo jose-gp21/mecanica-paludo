@@ -3,12 +3,21 @@ import { motion } from "framer-motion";
 import banner from '../../../public/images/daniel-de-lima-HIj8FDCj7jc-unsplash.jpg';
 import Image from "next/image";
 import { useWhatsAppModal } from "@/hooks/useWhatsAppModal";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
  const { open } = useWhatsAppModal();
+ const [headerHeight, setHeaderHeight] = useState(0);
+ useEffect(() => {
+    const header = document.getElementById("main-header");
+    if (header) setHeaderHeight(header.offsetHeight);
+  }, []);
 
   return (
-    <section className="relative bg-zinc-900 text-white min-h-screen flex items-center overflow-hidden pt-20 md:pt-0">
+    <section
+      className="relative bg-zinc-900 text-white min-h-screen flex items-center overflow-hidden"
+      style={{ paddingTop: `${headerHeight + 20}px` }} // ✅ espaçamento dinâmico
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <Image

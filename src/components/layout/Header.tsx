@@ -100,12 +100,13 @@ export function Header() {
 
       {/* Main Header */}
       <header
-        className={`fixed w-full top-0 z-50 transition-all  pt-3 pb-3 duration-500 ${
-          isScrolled
+        id="main-header"
+        className={`fixed w-full top-0 z-50 transition-all pt-3 pb-3 duration-500 ${
+            isScrolled
             ? "bg-zinc-900/95 backdrop-blur-lg shadow-2xl border-b border-[#00d055]/20"
             : "bg-transparent"
         } ${isScrolled ? "mt-0" : "mt-8"}`}
-      >
+        >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/home" className="flex items-center gap-3 group">
@@ -274,7 +275,7 @@ export function Header() {
                 })}
               </ul>
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-zinc-950 border-t border-zinc-800">
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-zinc-700 border-t border-zinc-800">
                 <button
                   onClick={open}
                   className="flex items-center justify-center gap-3 w-full bg-[#00d055] hover:bg-[#00e05f] text-black font-black py-4 uppercase tracking-wider transition-all duration-300 shadow-lg shadow-[#00d055]/30"
