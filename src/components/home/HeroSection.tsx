@@ -26,7 +26,7 @@ export default function HeroSection() {
           className="w-full h-full object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-zinc-950/98 via-zinc-950/90 md:via-zinc-950/85 to-zinc-950/70 md:to-zinc-950/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-zinc-950/98 via-zinc-950/60 md:via-zinc-950/55 to-zinc-950/70 md:to-zinc-950/40"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iIzFhMWExYSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuMSIvPjwvZz48L3N2Zz4=')] opacity-10"></div>
       </div>
 
