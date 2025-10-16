@@ -11,25 +11,25 @@ const services = [
     icon: Droplet, 
     title: "Troca de Óleo", 
     desc: "Produtos de alta qualidade e troca rápida para manter seu motor sempre protegido.",
-    features: ["Óleos Premium", "Filtros Originais", "Serviço em 30min"]
+    features: ["Óleos Premium", "Filtros Originais", "Serviço rápido" ]
   },
   { 
     icon: Wrench, 
     title: "Revisões Preventivas", 
     desc: "Manutenção completa e certificada para evitar problemas futuros.",
-    features: [ "Diagnóstico", "Relatório"]
+    features: [ "Diagnóstico", "Relatório", "Inspeção de Segurança", "Manutenção Preditiva" ]
   },
   { 
     icon: ShieldCheck, 
     title: "Sistema de Freios", 
     desc: "Segurança garantida com revisão completa do sistema de frenagem.",
-    features: ["Pastilhas", "Fluido de Freio"]
+    features: ["Pastilhas", "Fluido de Freio", "Discos e Tambor"]
   },
   { 
     icon: Settings, 
     title: "Suspensão", 
-    desc: "Correção e alinhamento com precisão para máximo conforto e estabilidade.",
-    features: ["Alinhamento", "Balanceamento", "Geometria"]
+    desc: "Peças de qualidade para máximo conforto e estabilidade.",
+    features: ["Amortecedores", "Molas", "Braços e Buchas", "Pivôs e Terminais"]
   },
   { 
     icon: Gauge, 
@@ -41,7 +41,7 @@ const services = [
     icon: Car, 
     title: "Motor", 
     desc: "Serviço completo de mecânica para máxima performance e durabilidade.",
-    features: ["Injeção Eletrônica", "Turbo e Performance"]
+  features: ["Injeção Eletrônica", "Turbo e Performance", "Correias e Tensores", "Peças de Qualidade para Montagem", "Bombas e Bicos"]
   },
 ];
 
