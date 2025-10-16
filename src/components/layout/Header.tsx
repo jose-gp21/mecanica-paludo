@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // ✅ importa o hook
+import { usePathname } from "next/navigation";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -11,9 +11,10 @@ import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname(); // ✅ rota atual
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const { open } = useWhatsAppModal();
 
   useEffect(() => {
@@ -21,35 +22,34 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   useEffect(() => {
     const checkOpenStatus = () => {
       const now = dayjs().locale("pt-br");
-      const day = now.day(); // 0=Dom, 1=Seg, ... 6=Sáb
+      const day = now.day();
       const hour = now.hour();
       const minute = now.minute();
       const currentTime = hour + minute / 60;
 
       let open = false;
 
-      // Segunda a Sexta: 07:30–12:00 e 13:30–18:30
       if (day >= 1 && day <= 5) {
         open =
           (currentTime >= 7.5 && currentTime <= 12) ||
           (currentTime >= 13.5 && currentTime <= 18.5);
       }
 
-      // Sábado: 07:00–12:00
       if (day === 6) {
         open = currentTime >= 7 && currentTime <= 12;
       }
 
-      // Domingo: fechado
       if (day === 0) open = false;
 
       setIsOpen(open);
     };
-     checkOpenStatus();
-    const interval = setInterval(checkOpenStatus, 60 * 1000); // verifica a cada 1 min
+
+    checkOpenStatus();
+    const interval = setInterval(checkOpenStatus, 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -81,20 +81,21 @@ export function Header() {
               <MapPin size={14} />
               <span>Abelardo Luz, SC</span>
             </div>
-          </div>{/* 🔥 Status dinâmico */}
-      <div className="text-xs text-zinc-400">
-        {isOpen ? (
-          <span className="inline-flex items-center gap-2 text-[#00d055] font-medium">
-            <span className="w-2 h-2 bg-[#00d055] rounded-full animate-pulse"></span>
-            Aberto agora
-          </span>
-        ) : (
-          <span className="inline-flex items-center gap-2 text-red-500 font-medium">
-            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-            Fechado agora
-          </span>
-        )}
-      </div>
+          </div>
+          {/* Status dinâmico - apenas desktop */}
+          <div className="hidden md:block text-xs text-zinc-400">
+            {isOpen ? (
+              <span className="inline-flex items-center gap-2 text-[#00d055] font-medium">
+                <span className="w-2 h-2 bg-[#00d055] rounded-full animate-pulse"></span>
+                Aberto agora
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-2 text-red-500 font-medium">
+                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                Fechado agora
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
@@ -102,11 +103,11 @@ export function Header() {
       <header
         id="main-header"
         className={`fixed w-full top-0 z-50 transition-all pt-3 pb-3 duration-500 ${
-            isScrolled
+          isScrolled
             ? "bg-zinc-900/95 backdrop-blur-lg shadow-2xl border-b border-[#00d055]/20"
             : "bg-transparent"
         } ${isScrolled ? "mt-0" : "mt-8"}`}
-        >
+      >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/home" className="flex items-center gap-3 group">
@@ -133,7 +134,7 @@ export function Header() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href; // ✅ verifica se é a rota atual
+              const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
@@ -168,12 +169,12 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden text-white bg-[#00d055] hover:bg-[#00e05f] p-3 transition-all duration-300 hover:scale-110 shadow-lg shadow-[#00d055]/30"
             aria-label="Menu"
           >
             <AnimatePresence mode="wait">
-              {isOpen ? (
+              {isMenuOpen ? (
                 <motion.div
                   key="close"
                   initial={{ rotate: -90, opacity: 0 }}
@@ -201,7 +202,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
+        {isMenuOpen && (
           <>
             <motion.div
               initial={{ opacity: 0 }}
@@ -209,7 +210,7 @@ export function Header() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 lg:hidden"
-              onClick={() => setIsOpen(false)}
+              onClick={() => setIsMenuOpen(false)}
             />
             <motion.nav
               initial={{ x: "100%" }}
@@ -229,7 +230,7 @@ export function Header() {
                     </span>
                   </div>
                   <button
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-zinc-400 hover:text-white p-2 hover:bg-zinc-800 rounded transition-colors"
                   >
                     <X size={24} />
@@ -252,7 +253,7 @@ export function Header() {
                     >
                       <Link
                         href={link.href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => setIsMenuOpen(false)}
                         className={`flex items-center justify-between px-4 py-4 text-lg font-bold uppercase tracking-wide group ${
                           isActive
                             ? "text-[#00d055]"
